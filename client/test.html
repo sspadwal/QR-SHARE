@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Socket Test</title>
+</head>
+
+<body bgcolor="black" style="color:white;font-family: Arial, sans-serif; text-align: center; padding-top: 50px;">
+    <h1>Socket Test</h1>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
+    <script>
+        const socket = io("http://localhost:3000");
+
+        socket.on("connect", () => {
+            console.log("Connected to server:", socket.id);
+        });
+
+        socket.emit("join-session", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzkzMzI1NDIsImV4cCI6MTc3OTMzMzQ0Mn0.UFHmhygosDACVfn4lVZ_3bSOjKkyHebFGD6wlyR9Fig");
+
+        socket.on("welcome", (msg) => {
+            console.log(msg);
+        });
+
+        socket.on("room-joined", (msg) => {
+            console.log(msg);
+        });
+
+        socket.on("files-ready", (files) => {
+            console.log("FILES RECEIVED:", files);
+        });
+        socket.on("disconnect", () => {
+            console.log("Disconnected");
+        });
+    </script>
+</body>
+
+</html>
