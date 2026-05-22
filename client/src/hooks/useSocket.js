@@ -20,17 +20,11 @@ const useSocket = (serverUrl, sessionId) => {
         });
 
         // 3. Listen for server events
-        socket.on('welcome', (msg) => {
-            console.log(msg);
-        });
-
         socket.on('room-joined', (msg) => {
-            console.log(msg);
             setRoomMessage(msg);
         });
 
         socket.on('files-ready', (files) => {
-            console.log('FILES RECEIVED:', files);
             setReceivedFiles((prev) => [...(prev || []), ...files]);
         });
 

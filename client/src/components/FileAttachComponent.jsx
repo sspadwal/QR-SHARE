@@ -73,7 +73,7 @@ const FileAttachComponent = ({ sessionId, baseUrl, isMobile = false }) => {
             {uploadSuccess && (
                 <p className="success">
                     {isMobile
-                        ? 'Files sent! Check your laptop — they should appear instantly.'
+                        ? 'Files sent! Check your laptop - they should appear instantly.'
                         : 'Upload complete!'}
                 </p>
             )}
