@@ -69,7 +69,7 @@ const LaptopPage = ({ baseUrl, theme, toggleTheme }) => {
                 const response = await axios.get(baseUrl, { withCredentials: true });
                 setSessionId(response.data.sessionId);
             } catch (error) {
-                setSessionError('Could not establish secure session. Make sure the backend is running.');
+                setSessionError('Could not establish secure session.');
                 console.error(error);
             }
         };
