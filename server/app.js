@@ -59,6 +59,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static('public'));
 
+app.get('/ping', (req, res) => {
+  res.status(200).json({ status: 'ok', message: 'pong' });
+});
+
 app.use('/api/session', sessionApiRoutes);
 app.use('/', sessionRoutes);
 app.use('/api/files', fileRoutes);

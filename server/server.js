@@ -2,7 +2,7 @@ import app from './app.js';
 import dotenv from 'dotenv';
 import dbConnect from './src/common/config/db.js';
 import http from 'http';
-import {initSocket} from './src/common/config/socketManager.js';
+import { initSocket } from './src/common/config/socketManager.js';
 import { startCleanupService } from './src/common/services/cleanupService.js';
 
 dotenv.config();
