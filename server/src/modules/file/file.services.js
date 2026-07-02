@@ -11,7 +11,7 @@ const uploadToCloudinary = (buffer) =>
   });
 
 const uploadFile = async (sessionID, files) => {
- 
+
   if (!Array.isArray(files) || files.length === 0) {
     throw new Error('No files uploaded');
   }

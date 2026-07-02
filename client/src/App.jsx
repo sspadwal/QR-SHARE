@@ -3,6 +3,7 @@ import './App.css';
 import { getServerUrl } from './utils/config.js';
 import LaptopPage from './pages/LaptopPage.jsx';
 import MobileUploadPage from './pages/MobileUploadPage.jsx';
+import { Analytics } from '@vercel/analytics/react';
 
 const baseUrl = getServerUrl();
 
@@ -28,11 +29,16 @@ function App() {
         setTheme(prev => prev === 'light' ? 'dark' : 'light');
     };
 
-    if (sessionFromUrl) {
-        return <MobileUploadPage sessionId={sessionFromUrl} baseUrl={baseUrl} theme={theme} toggleTheme={toggleTheme} />;
-    }
-
-    return <LaptopPage baseUrl={baseUrl} theme={theme} toggleTheme={toggleTheme} />;
+    return (
+        <>
+            <Analytics />
+            {sessionFromUrl ? (
+                <MobileUploadPage sessionId={sessionFromUrl} baseUrl={baseUrl} theme={theme} toggleTheme={toggleTheme} />
+            ) : (
+                <LaptopPage baseUrl={baseUrl} theme={theme} toggleTheme={toggleTheme} />
+            )}
+        </>
+    );
 }
 
 export default App;
